@@ -19,6 +19,61 @@
     ></script>
   </head>
   <body>
+    <nav class="navigation">
+      <div class="logo">
+        <p class="logo__text">Ponleou.</p>
+        <a href="/"
+          ><img class="ani-blinking" src="images/logo dash.svg" alt=""
+        /></a>
+      </div>
+      <div class="collapsible__toggler nav__menu">
+        <i class="fa-solid fa-bars fa-2x"></i>
+      </div>
+      <ul class="collapsible__content list list--slash-style nav__list">
+        <li class="nav__item"><a href="#">Work</a></li>
+        <li class="nav__item"><a href="#">Contact</a></li>
+        <li class="nav__item"><a href="#">About</a></li>
+      </ul>
+    </nav>
+
+    <section class="block block--dark mainpage-container">
+      <div class="mainpage__lamp lamp--active">
+        <div class="mainpage__lamp-image lamp__off">
+          <img src="images/lamp off.svg" alt="" />
+        </div>
+        <div class="mainpage__lamp-image lamp__on">
+          <img src="images/lamp on.svg" alt="" />
+        </div>
+      </div>
+      <div class="container mainpage">
+        <h1>
+          <p class="mainpage__text">Hello,</p>
+          <p class="mainpage__text">I am</p>
+          <div class="tap">
+            <div class="tap__main">
+              <p class="mainpage__text mainpage__text--primary">Ponleou.</p>
+            </div>
+            <div class="tap__addition">
+              <p class="mainpage__text">
+                a <span class="mainpage__text--secondary">Web Dev.</span>
+              </p>
+            </div>
+          </div>
+        </h1>
+        <div class="info-text info-text--secondary mainpage__info--mobile">
+          <p class="info-text__content">tap anywhere</p>
+          <span class="info-text__image ani-hovering"
+            ><i class="fa-solid fa-caret-up"></i
+          ></span>
+        </div>
+        <div class="info-text info-text--secondary mainpage__info--std">
+          <span class="info-text__image ani-hovering">
+            <i class="fa-solid fa-arrow-up"></i>
+          </span>
+          <p class="info-text__content">click me</p>
+        </div>
+      </div>
+    </section>
     <script src="js/main.js"></script>
   </body>
 </html>

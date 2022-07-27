@@ -24,6 +24,8 @@ body {
   line-height: 1.5;
   color: var(--color-body);
   font-size: 1.8rem;
+  height: 100vh;
+  overflow: hidden;
 }
 
 h1,
@@ -31,18 +33,22 @@ h2,
 h3 {
   color: var(--color-heading);
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 2rem;
+  line-height: 1.1;
 }
 
 h1 {
-  font-size: 6.5rem;
-  letter-spacing: 1px;
+  font-size: 6rem;
   font-weight: 800;
+}
+
+p {
+  margin-top: 0;
 }
 
 @media screen and (min-width: 1024px) {
   h1 {
-    font-size: 13rem;
+    font-size: 10rem;
   }
 }
 
@@ -103,6 +109,27 @@ a {
   animation-iteration-count: infinite;
 }
 
+@keyframes hovering {
+  0% {
+    transform: translateY(0);
+    animation-timing-function: ease-out;
+  }
+
+  50% {
+    transform: translateY(0.5rem);
+    animation-timing-function: ease-in;
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.ani-hovering {
+  animation: hovering 1s;
+  animation-iteration-count: infinite;
+}
+
 /* Collapsible */
 .collapsible__content {
   max-height: 0;
@@ -118,16 +145,26 @@ a {
 
 /* Navigation */
 .navigation {
-  display: flex;
-  justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  padding: 1rem 2rem;
-  border-bottom: 1px solid var(--color-body-dark);
   background: var(--color-background);
+  border-bottom: 1px solid var(--color-body-dark);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 999;
 }
 
 .nav__menu {
+  color: rgb(165, 165, 165);
+  transition: color 0.3s;
+}
+
+.nav__menu.collapsible--expanded {
   color: #fff;
 }
 
@@ -139,6 +176,15 @@ a {
 .nav__item {
   padding: 0 2rem;
   padding-bottom: 1rem;
+}
+
+.nav__item a {
+  color: rgb(165, 165, 165);
+  transition: color 0.3s;
+}
+
+.nav__item:hover a {
+  color: #fff;
 }
 
 .nav__item:first-of-type {
@@ -165,3 +211,256 @@ a {
     padding-top: 0;
   }
 }
+
+/* Blocks */
+.block {
+  padding: 5rem 2rem;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}
+
+.block--dark {
+  background: var(--color-background);
+}
+
+/* Tap animation */
+.tap__main {
+  overflow: hidden;
+  transition: transform 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.tap__addition {
+  max-height: 0;
+  overflow: hidden;
+  transition: transform 0.3s;
+  transition-timing-function: ease-out;
+}
+
+.tap--active .tap__addition {
+  max-height: 100%;
+  transform: translateX(2rem);
+}
+
+.tap--active .tap__main {
+  max-height: 0;
+  transform: translateX(2rem);
+}
+
+.tap:hover .tap__addition {
+  max-height: 100%;
+  transform: translateX(2rem);
+}
+
+.tap:hover .tap__main {
+  max-height: 0;
+  transform: translateX(2rem);
+}
+
+@media screen and (min-width: 768px) {
+  .tap {
+    position: relative;
+  }
+
+  .tap__addition {
+    font-size: 3rem;
+    font-weight: 600;
+    letter-spacing: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    opacity: 0;
+    transform: translateY(-35px);
+    transition: all 0.3s;
+  }
+
+  .tap:hover .tap__main {
+    max-height: 100%;
+    transform: none;
+  }
+
+  .tap:hover .tap__addition {
+    max-height: 100%;
+    opacity: 1;
+    transform: translateY(-10px);
+  }
+}
+
+/* info text */
+.info-text__content {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.info-text--primary {
+  color: var(--color-primary);
+}
+
+.info-text--secondary {
+  color: var(--color-secondary);
+}
+
+.info-text__image {
+  display: inline-block;
+}
+
+/* main page */
+.mainpage-container {
+  height: 100%;
+}
+
+.mainpage__lamp {
+  display: none;
+}
+
+.mainpage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  letter-spacing: 2px;
+  position: relative;
+  height: 100%;
+}
+
+.mainpage__text {
+  margin: 0;
+}
+
+.mainpage__text--primary {
+  color: var(--color-primary);
+}
+
+.mainpage__text--secondary {
+  color: var(--color-secondary);
+}
+
+.mainpage__info--mobile {
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mainpage__info--std {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .mainpage-container {
+    padding-left: 0;
+    padding-right: 0;
+    display: grid;
+    grid-template-rows: 300px 1fr;
+    gap: 5rem;
+    height: 100%;
+  }
+
+  .mainpage__info--std {
+    display: block;
+    position: absolute;
+    text-align: center;
+  }
+
+  .mainpage__info--mobile {
+    display: none;
+  }
+
+  .mainpage__lamp {
+    display: block;
+    position: relative;
+    top: -250px;
+  }
+
+  .mainpage {
+    max-height: 35rem;
+    margin-top: auto;
+    text-align: center;
+  }
+
+  /* .mainpage__lamp {
+    display: block;
+    width: 100%;
+    position: fixed;
+    top: -200px;
+    overflow: hidden;
+  } */
+
+  .mainpage__lamp-image img {
+    visibility: hidden;
+  }
+
+  .lamp__off {
+    display: block;
+    background: url(../images/lamp\ off.svg) center top;
+    background-repeat: no-repeat;
+  }
+
+  .lamp__on {
+    background: url(../images/lamp\ on.svg) center top;
+    display: none;
+    background-repeat: no-repeat;
+  }
+
+  .lamp--active .lamp__off {
+    display: none;
+  }
+
+  .lamp--active .lamp__on {
+    display: block;
+  }
+
+  .lamp--active + .mainpage {
+    display: block;
+  }
+
+  /* FIXME: units for ALL (the intro text and the positioning of other texts) (use relative), transition, height issue with lamp */
+  /* FIXME: touch screen devices that has the lamp function (touching the screen ruins it) */
+  /* FIXME: certain width sizes (768 to 1368) breaks the lamp on section (not centered) because of the lamp on image width */
+  /* TODO: rebuild the page in playground (idea: instead of a lamp, which is a big image, use a smaller, scalable image like a desktop, button presses to open the desktop, 
+  displays the intro text */
+
+  /* .mainpage {
+    display: none;
+    height: auto;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 5rem;
+  } */
+}
+
+/*
+  .mainpage__lamp {
+    display: block;
+    position: absolute;
+    top: -25rem;
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+
+  .mainpage__lamp .lamp-off {
+    display: none;
+  }
+
+  .mainpage__lamp .lamp-on {
+    display: inline-block;
+  } */
+/* TODO: created a 768px size lamp on, but it doesnt work with wider screens, fix that. find a efficient way to resize the images so its the same size (the centering is fixed) */
+/*
+  .mainpage {
+    display: block;
+    height: auto;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  */
