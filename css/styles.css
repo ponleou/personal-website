@@ -26,6 +26,7 @@ body {
   font-size: 1.8rem;
   height: 100vh;
   overflow: hidden;
+  letter-spacing: 2px;
 }
 
 h1,
@@ -34,7 +35,7 @@ h3 {
   color: var(--color-heading);
   margin-top: 0;
   margin-bottom: 2rem;
-  line-height: 1.1;
+  line-height: 1.5;
 }
 
 h1 {
@@ -43,7 +44,7 @@ h1 {
 }
 
 p {
-  margin-top: 0;
+  margin: 0;
 }
 
 @media screen and (min-width: 1024px) {
@@ -82,6 +83,7 @@ a {
   display: inline-block;
   margin: 0;
   margin-right: 1rem;
+  letter-spacing: 0;
 }
 
 /* Animations */
@@ -226,6 +228,12 @@ a {
   background: var(--color-background);
 }
 
+@media screen and (min-width: 768px) {
+  .block {
+    padding: 5rem;
+  }
+}
+
 /* Tap animation */
 .tap__main {
   overflow: hidden;
@@ -260,36 +268,11 @@ a {
   transform: translateX(2rem);
 }
 
-@media screen and (min-width: 768px) {
-  .tap {
-    position: relative;
-  }
-
-  .tap__addition {
-    font-size: 3rem;
-    font-weight: 600;
-    letter-spacing: 0;
-    position: absolute;
-    left: 0;
-    right: 0;
-    opacity: 0;
-    transform: translateY(-35px);
-    transition: all 0.3s;
-  }
-
-  .tap:hover .tap__main {
-    max-height: 100%;
-    transform: none;
-  }
-
-  .tap:hover .tap__addition {
-    max-height: 100%;
-    opacity: 1;
-    transform: translateY(-10px);
-  }
+/* info text */
+.info-text {
+  text-align: center;
 }
 
-/* info text */
 .info-text__content {
   font-size: 1.4rem;
   text-transform: uppercase;
@@ -308,18 +291,100 @@ a {
   display: inline-block;
 }
 
+/* red button */
+.red-button img {
+  width: 100%;
+}
+
+.red-button {
+  position: relative;
+  width: 250px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.red-button__static {
+  display: block;
+}
+
+.red-button:hover {
+  opacity: 1;
+}
+
+.red-button__mouse-down {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: none;
+}
+
+.red-button--pressed .red-button__static {
+  visibility: hidden;
+}
+
+.red-button--pressed .red-button__mouse-down {
+  display: block;
+}
+
 /* main page */
+.mainpage__button-container {
+  display: none;
+}
+
 .mainpage-container {
   height: 100%;
 }
 
-.mainpage__lamp {
-  display: none;
+.mainpage {
+  height: 100%;
+  display: flex;
+  align-items: center;
 }
 
-.mainpage {
+.mainpage__info--mobile {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.mainpage__text--primary {
+  color: var(--color-primary);
+}
+
+.mainpage__text--secondary {
+  color: var(--color-secondary);
+}
+
+@media screen and (min-width: 768px) {
+  .mainpage__info--mobile {
+    display: none;
+  }
+
+  .mainpage__button-container {
+    display: block;
+  }
+
+  .mainpage__info--std {
+    margin-top: 2rem;
+  }
+
+  .mainpage__heading {
+    line-height: 1.4;
+  }
+
+  .mainpage {
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 5rem;
+  }
+}
+
+/* TODO: widescreens with touchscreen cannot press the button (and the web dev text toggles while trying to press the button) */
+
+/* .mainpage {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   letter-spacing: 2px;
   position: relative;
@@ -346,11 +411,11 @@ a {
   right: 0;
 }
 
-.mainpage__info--std {
+.mainpage__button-container {
   display: none;
-}
+} */
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .mainpage-container {
     padding-left: 0;
     padding-right: 0;
@@ -382,13 +447,13 @@ a {
     text-align: center;
   }
 
-  /* .mainpage__lamp {
+  .mainpage__lamp {
     display: block;
     width: 100%;
     position: fixed;
     top: -200px;
     overflow: hidden;
-  } */
+  }
 
   .mainpage__lamp-image img {
     visibility: hidden;
@@ -416,15 +481,15 @@ a {
 
   .lamp--active + .mainpage {
     display: block;
-  }
+  } */
 
-  /* FIXME: units for ALL (the intro text and the positioning of other texts) (use relative), transition, height issue with lamp */
-  /* FIXME: touch screen devices that has the lamp function (touching the screen ruins it) */
-  /* FIXME: certain width sizes (768 to 1368) breaks the lamp on section (not centered) because of the lamp on image width */
-  /* TODO: rebuild the page in playground (idea: instead of a lamp, which is a big image, use a smaller, scalable image like a desktop, button presses to open the desktop, 
+/* FIXME: units for ALL (the intro text and the positioning of other texts) (use relative), transition, height issue with lamp */
+/* FIXME: touch screen devices that has the lamp function (touching the screen ruins it) */
+/* FIXME: certain width sizes (768 to 1368) breaks the lamp on section (not centered) because of the lamp on image width */
+/* TODO: rebuild the page in playground (idea: instead of a lamp, which is a big image, use a smaller, scalable image like a desktop, button presses to open the desktop, 
   displays the intro text */
-
-  /* .mainpage {
+/*
+  .mainpage {
     display: none;
     height: auto;
     position: absolute;
@@ -432,10 +497,10 @@ a {
     left: 0;
     right: 0;
     bottom: 5rem;
-  } */
+  }
 }
 
-/*
+
   .mainpage__lamp {
     display: block;
     position: absolute;
@@ -451,9 +516,8 @@ a {
 
   .mainpage__lamp .lamp-on {
     display: inline-block;
-  } */
-/* TODO: created a 768px size lamp on, but it doesnt work with wider screens, fix that. find a efficient way to resize the images so its the same size (the centering is fixed) */
-/*
+  } 
+
   .mainpage {
     display: block;
     height: auto;
@@ -462,5 +526,4 @@ a {
     left: 0;
     right: 0;
     bottom: 0;
-  }
-  */
+  } */

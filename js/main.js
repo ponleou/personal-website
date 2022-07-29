@@ -6,13 +6,28 @@ function() {
     item.classList.toggle("collapsible--expanded");
 }));
 
-//hover animation (mobile)
+//tap animation (mobile)
 const mainPage = document.querySelectorAll(".mainpage");
-const hoverEl = document.querySelectorAll(".tap")
+const tapEl = document.querySelectorAll(".tap")
 
 function toggleClass(){
-    hoverEl.forEach(item => item.classList.toggle("tap--active"))
+    tapEl.forEach(item => item.classList.toggle("tap--active"))
 };
 
 mainPage.forEach(item => item.addEventListener("touchstart", toggleClass));
 //mainPage.forEach(item => item.addEventListener("click", toggleClass));
+
+//red button
+const redButton = document.querySelectorAll(".red-button");
+const redButtonFunctions = {
+    buttonPressed() {
+        redButton.forEach(item => item.classList.add("red-button--pressed"));
+    },
+    buttonReleased() {
+        redButton.forEach(item => item.classList.remove("red-button--pressed"));
+    },
+};
+
+redButton.forEach(item => item.addEventListener("mousedown", redButtonFunctions.buttonPressed));
+redButton.forEach(item => item.addEventListener("mouseleave", redButtonFunctions.buttonReleased));
+redButton.forEach(item => item.addEventListener("mouseup", redButtonFunctions.buttonReleased));

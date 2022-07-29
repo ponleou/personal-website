@@ -18,7 +18,7 @@
       crossorigin="anonymous"
     ></script>
   </head>
-  <body>
+  <body style="background-color: #000">
     <nav class="navigation">
       <div class="logo">
         <p class="logo__text">Ponleou.</p>
@@ -35,18 +35,9 @@
         <li class="nav__item"><a href="#">About</a></li>
       </ul>
     </nav>
-
     <section class="block block--dark mainpage-container">
-      <div class="mainpage__lamp lamp--active">
-        <div class="mainpage__lamp-image lamp__off">
-          <img src="images/lamp off.svg" alt="" />
-        </div>
-        <div class="mainpage__lamp-image lamp__on">
-          <img src="images/lamp on.svg" alt="" />
-        </div>
-      </div>
       <div class="container mainpage">
-        <h1>
+        <h1 class="mainpage__heading">
           <p class="mainpage__text">Hello,</p>
           <p class="mainpage__text">I am</p>
           <div class="tap">
@@ -66,11 +57,25 @@
             ><i class="fa-solid fa-caret-up"></i
           ></span>
         </div>
-        <div class="info-text info-text--secondary mainpage__info--std">
-          <span class="info-text__image ani-hovering">
-            <i class="fa-solid fa-arrow-up"></i>
-          </span>
-          <p class="info-text__content">click me</p>
+        <div class="mainpage__button-container">
+          <div class="red-button mainpage__red-button">
+            <img
+              class="red-button__static"
+              src="images/button-hover.svg"
+              alt=""
+            />
+            <img
+              class="red-button__mouse-down"
+              src="images/button-clicked.svg"
+              alt=""
+            />
+          </div>
+          <div class="info-text info-text--secondary mainpage__info--std">
+            <span class="info-text__image ani-hovering">
+              <i class="fa-solid fa-arrow-up"></i>
+            </span>
+            <p class="info-text__content">click me</p>
+          </div>
         </div>
       </div>
     </section>
