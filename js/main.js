@@ -14,7 +14,7 @@ function toggleClass(){
     tapEl.forEach(item => item.classList.toggle("tap--active"))
 };
 
-mainPage.forEach(item => item.addEventListener("touchstart", toggleClass));
+mainPage.forEach(item => item.addEventListener("mousedown", toggleClass));
 //mainPage.forEach(item => item.addEventListener("click", toggleClass));
 
 //red button
