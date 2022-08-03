@@ -23,7 +23,7 @@ const mainpageHeading = document.querySelectorAll(".mainpage__heading");
 const redButtonFunctions = {
     buttonPressed() {
         redButton.forEach(item => item.classList.add("red-button--pressed"));
-        mainpageHeading.forEach(item => item.classList.toggle("mainpage__red-button--activate"))
+        // mainpageHeading.forEach(item => item.classList.toggle("mainpage__red-button--activate"));
 
     },
     buttonReleased() {
@@ -32,8 +32,8 @@ const redButtonFunctions = {
 };
 
 function redButtonActivate() {
-    mainpageHeading.forEach(item => item.classList.toggle("mainpage__red-button--activate"))
-}
+    mainpageHeading.forEach(item => item.classList.toggle("mainpage__red-button--activate"));
+};
 
 redButton.forEach(item => item.addEventListener("mousedown", redButtonFunctions.buttonPressed));
 redButton.forEach(item => item.addEventListener("mouseleave", redButtonFunctions.buttonReleased));
@@ -42,4 +42,5 @@ redButton.forEach(item => item.addEventListener("mouseup", redButtonFunctions.bu
 redButton.forEach(item => item.addEventListener("touchstart", redButtonFunctions.buttonPressed));
 redButton.forEach(item => item.addEventListener("touchend", redButtonFunctions.buttonReleased));
 
+redButton.forEach(item => item.addEventListener("mousedown", redButtonActivate));
 

@@ -279,6 +279,16 @@ a {
     max-height: 100%;
     transform: none;
   }
+
+  .tap:hover .tap__addition {
+    max-height: 0;
+    transform: none;
+  }
+
+  .tap:hover .tap__main {
+    max-height: 100%;
+    transform: none;
+  }
 }
 
 /* info text */
