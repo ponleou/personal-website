@@ -1,0 +1,24 @@
+body {
+  font-family: sans-serif;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  font-size: 150%;
+}
+
+li {
+  position: absolute;
+}
+
+li:first-of-type {
+  position: relative;
+}
+
+.circle-box {
+  margin-top: 10px;
+  height: 90px;
+}

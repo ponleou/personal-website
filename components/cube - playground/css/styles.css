@@ -1,0 +1,35 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: dodgerblue;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box-container {
+  z-index: 999;
+}
+
+.box {
+  transform-style: preserve-3d;
+}
+
+.box__side {
+  background: black;
+  border: 2px solid white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+}
